@@ -12,10 +12,9 @@ see how effectively chords could be played through the same single active or
 passive buzzer, and then make music from those notes and chords. I chose the
 opening of Beethoven's 5th Symphony as the music to play.
 
-This project only requires one data pin to signal HIGH/LOW to the buzzer, so
-this can be used with any board. I have not provided a schematic because of
-how basic this circuit is. From an Arduino compatible board connect a digital
-pin (BUZZER_PIN) to the positive post of an active or passive buzzer, and 
+[Project assembly](https://user-images.githubusercontent.com/20711484/184712946-89a3d328-0530-4271-ac1d-f30e6506cacf.png) only requires one data pin to signal HIGH/LOW to the buzzer,
+so this can be used with any board.
+
 connect the buzzer ground pin to GND on the Arduino. That's it!
 
 Special thanks to https://pages.mtu.edu/~suits/NoteFreqCalcs.html for the
