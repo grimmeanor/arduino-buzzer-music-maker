@@ -41,29 +41,29 @@
 // PINOUTS
 // This project only requires one data pin to signal HIGH/LOW to the buzzer, so
 // this can be used with any board.
-const byte BUZZER_PIN = 8;
+const byte BUZZER_PIN = A5;
 
 //Octaves 0-8
 const byte OCTAVE_COUNT = 9;
 //Notes C-B Indexing
 const byte NOTE_COUNT = 12;
-const byte NOTE_C = 0;
-const byte NOTE_Cs = 1;
-const byte NOTE_Db = 1;
-const byte NOTE_D = 2;
-const byte NOTE_Ds = 3;
-const byte NOTE_Eb = 3;
-const byte NOTE_E = 4;
-const byte NOTE_F = 5;
-const byte NOTE_Fs = 6;
-const byte NOTE_Gb = 6;
-const byte NOTE_G = 7;
-const byte NOTE_Gs = 8;
-const byte NOTE_Ab = 8;
-const byte NOTE_A = 9;
-const byte NOTE_As = 10;
-const byte NOTE_Bb = 10;
-const byte NOTE_B = 11;
+const byte NOTE_C_IX= 0;
+const byte NOTE_Cs_IX= 1;
+const byte NOTE_Db_IX= 1;
+const byte NOTE_D_IX= 2;
+const byte NOTE_Ds_IX= 3;
+const byte NOTE_Eb_IX= 3;
+const byte NOTE_E_IX= 4;
+const byte NOTE_F_IX= 5;
+const byte NOTE_Fs_IX= 6;
+const byte NOTE_Gb_IX= 6;
+const byte NOTE_G_IX= 7;
+const byte NOTE_Gs_IX= 8;
+const byte NOTE_Ab_IX= 8;
+const byte NOTE_A_IX= 9;
+const byte NOTE_As_IX= 10;
+const byte NOTE_Bb_IX= 10;
+const byte NOTE_B_IX= 11;
 const String NOTE_NAME[NOTE_COUNT] = {
   "C", "C#/Db", "D", "D#/Eb",
   "E", "F", "F#/Gb", "G", 
@@ -72,7 +72,7 @@ const String NOTE_NAME[NOTE_COUNT] = {
 /////////////////////////////////
 // NOTES/OCTAVES C0-B8 
 //  For Indexing/Scaling
-//  e.g. A4 = NOTE_A + (octave * NOTE_COUNT)
+//  e.g. A4 = NOTE_A_IX+ (octave * NOTE_COUNT)
 //  equals A4 = 9 + (4 * 12)
 //  equals A4 = 57
 const byte NOTE_C0 = 0;
@@ -358,9 +358,9 @@ void setNotesToA4Hz(int inA4Hz) {
 ////////////////////////////////////////////////////////////////////////////////
 // The functions playNote and playChord have the following to take note of:
 //   division parameter - used to identify the type of note in 1/x form
-//     ie. whole=1/1, half=1/2, quarter=1/4, eighth=1/8, etc...
+//     ie. whole=1, half=2, quarter=4, eighth=8, etc...
 //   FULL_MEASURE - identifies the tempo in ms per whole note
-//   REFRAIN - rather arbitrary number to separate notes from each other
+//   REFRAIN - rather arbitrary number to separate notes
 //   MAX_MICROSEC_DELAY - Largest accurate value usable in delayMicroseconds()
 //     https://www.arduino.cc/reference/en/language/functions/time/delaymicroseconds/
 void playNote(byte note, unsigned long division) {
